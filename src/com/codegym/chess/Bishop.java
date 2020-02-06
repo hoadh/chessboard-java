@@ -75,4 +75,22 @@ public class Bishop extends Chessman {
     public char getName() {
         return 'B';
     }
+
+    @Override
+    public boolean canMove(Coordinate destination, Iterable<Coordinate> coordinatesContainChessman) {
+        if (this.isValidNextCoordinate(destination)) {
+            Iterable<Coordinate> path = this.getPathTo(destination);
+
+            for (Coordinate coordinate: path) {
+                for (Coordinate coordinateHasChessman: coordinatesContainChessman) {
+                    if (coordinate.equals(coordinateHasChessman)) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+        return false;
+    }
 }

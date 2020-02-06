@@ -9,7 +9,6 @@ public abstract class Chessman {
     protected final int lastIndex = Game.LAST_INDEX;
 
     private boolean _coordinateIsNotEqualWith(Coordinate coordinate) {
-
         return this.coordinate == null || !this.coordinate.equals(coordinate);
     }
 
@@ -65,4 +64,12 @@ public abstract class Chessman {
     public abstract Iterable<Coordinate> getPathTo(Coordinate destination);
 
     public abstract char getName();
+
+    /**
+     * Check if can move to an coordinate with the list chessman on the path to destination
+     * @param destination Coordinate
+     * @param coordinatesContainChessman Iterable<Coordinate>
+     * @return boolean
+     */
+    public abstract boolean canMove(Coordinate destination, Iterable<Coordinate> coordinatesContainChessman);
 }
