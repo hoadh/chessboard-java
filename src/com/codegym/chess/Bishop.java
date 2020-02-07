@@ -51,7 +51,7 @@ public class Bishop extends Chessman {
 
         i = x; j = y;
         coordinates.clear();
-        while (i > firstIndex && i < lastIndex) {
+        while (i > firstIndex && j < lastIndex) {
             i--;
             j++;
 
